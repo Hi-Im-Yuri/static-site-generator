@@ -31,8 +31,9 @@ class TestHTMLNode(unittest.TestCase):
         )
         self.assertIsInstance(htmlnode, HTMLNode)
         self.assertIsInstance(htmlnode5, HTMLNode)
-        #htmlnode6.props_to_html())
-        #print(htmlnode5.props_to_html())
+        print(htmlnode6.props_to_html())
+        print(htmlnode5.props_to_html())
+
 
         #print(htmlnode)
         #print(htmlnode5)
