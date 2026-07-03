@@ -31,12 +31,8 @@ class TestHTMLNode(unittest.TestCase):
         )
         self.assertIsInstance(htmlnode, HTMLNode)
         self.assertIsInstance(htmlnode5, HTMLNode)
-        print(htmlnode6.props_to_html())
-        print(htmlnode5.props_to_html())
-
-
-        #print(htmlnode)
-        #print(htmlnode5)
+        self.assertEqual(htmlnode5.props_to_html(), ' href=https://www.google.com')
+        self.assertEqual(htmlnode6.props_to_html(), ' class=fit-picture src=https://wallpapers.com/images/hd/cute-pictures-67n2v527n1nhtady.jpg alt=cat picture')
 
 
 class TestLeafNode(unittest.TestCase):
