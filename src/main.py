@@ -1,5 +1,5 @@
 from resources.generate_page import generate_page
-import os, shutil
+import os, shutil, sys
 
 def move_files(source: str, dest: str) -> None:
     if not os.path.exists(source):
@@ -25,15 +25,16 @@ def copy_files(source: str, dest:str) -> None:
     return
 
 def main():
+    base_path = sys.argv[1] if len(sys.argv) > 1 else "/"
     source = "./static"
-    destination = "./public"
+    destination = "./docs"
     move_files(source, destination)
-    for root, dirs, files in os.walk("./content"):
+    for root, dirs, files in os.walk(base_path):
         for file in files:
             if file.endswith(".md"):
               from_path = os.path.join(root, file)
-              to_path = from_path.replace("./content", "./public").replace(".md", ".html")
-              generate_page(from_path, "./template.html", to_path)
+              to_path = from_path.replace("./content", "./docs").replace(".md", ".html")
+              generate_page(from_path, "./template.html", to_path, base_path)
     return
 
 if __name__ == "__main__":
