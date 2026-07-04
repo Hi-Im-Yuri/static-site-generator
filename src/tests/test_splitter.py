@@ -1,5 +1,5 @@
-from splitter import split_nodes_image, split_nodes_link
-from textnode import TextNode, TextType
+from resources.splitter import split_nodes_image, split_nodes_link
+from resources.textnode import TextNode, TextType
 import unittest
 
 class TestSplitter(unittest.TestCase):

@@ -1,6 +1,4 @@
-from markdown_to_html import markdown_to_html
-from htmlnode import HTMLNode
-from parentnode import ParentNode
+from resources.generate_page import generate_page
 import os, shutil
 
 def move_files(source: str, dest: str) -> None:
@@ -10,7 +8,6 @@ def move_files(source: str, dest: str) -> None:
         shutil.rmtree(dest)
     os.makedirs(dest)
     copy_files(source, dest)
-
 
 def copy_files(source: str, dest:str) -> None:
     current_entry = os.listdir(source)
@@ -27,17 +24,12 @@ def copy_files(source: str, dest:str) -> None:
             shutil.copy(current, new_destination)
     return
 
-
 def main():
     source = "./static"
     destination = "./public"
     move_files(source, destination)
+    generate_page("./content/index.md", "./template.html", "./public/index.html")
     return
-
-
-
-
-
 
 if __name__ == "__main__":
     main()

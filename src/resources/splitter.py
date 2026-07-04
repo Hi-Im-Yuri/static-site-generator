@@ -1,5 +1,5 @@
-from textnode import TextNode, TextType
-from extractor import extract_markdown_images, extract_markdown_links
+from .textnode import TextNode, TextType
+from .extractor import extract_markdown_images, extract_markdown_links
 import re
 
 def split_nodes_image(nodes: list[TextNode]) -> list[TextNode]:

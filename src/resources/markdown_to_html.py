@@ -1,12 +1,12 @@
 from stat import UF_NODUMP
 
-from htmlnode import HTMLNode
-from textnode import TextNode, TextType
-from markdown_to_blocks import markdown_to_blocks
-from block_to_block_type import block_to_block_type, BlockType
-from leafnode import LeafNode
-from parentnode import ParentNode
-from text_to_textnode import text_to_textnodes
+from .htmlnode import HTMLNode
+from .textnode import TextNode, TextType
+from .markdown_to_blocks import markdown_to_blocks
+from .block_to_block_type import block_to_block_type, BlockType
+from .leafnode import LeafNode
+from .parentnode import ParentNode
+from .text_to_textnode import text_to_textnodes
 
 def markdown_to_html(markdown: str) -> ParentNode:
     blocks = markdown_to_blocks(markdown)
@@ -57,9 +57,9 @@ def block_to_node(block_type: BlockType, block: str) -> ParentNode:
         case BlockType.QUOTE:
             return ParentNode("blockquote", text_to_children(block))
         case BlockType.UNORDERED_LIST:
-            return ParentNode("ul", list_to_children(block))
+            return ParentNode("ul", list_to_children(block, False))
         case BlockType.ORDERED_LIST:
-            return ParentNode("ol", list_to_children(block))
+            return ParentNode("ol", list_to_children(block, True))
 
 def textnode_to_html_node(textnode: TextNode) -> HTMLNode:
     match textnode.text_type:

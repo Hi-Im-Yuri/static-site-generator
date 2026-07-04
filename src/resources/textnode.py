@@ -1,6 +1,6 @@
 from ast import match_case
 from enum import Enum
-from leafnode import LeafNode
+from .leafnode import LeafNode
 
 
 class TextType(Enum):

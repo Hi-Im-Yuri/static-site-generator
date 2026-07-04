@@ -1,5 +1,5 @@
 import unittest
-from block_to_block_type import block_to_block_type, BlockType
+from resources.block_to_block_type import block_to_block_type, BlockType
 class TestBlockToBlockType(unittest.TestCase):
     def test_block_to_block_type(self):
         self.assertEqual(block_to_block_type("# "), BlockType.HEADING1)

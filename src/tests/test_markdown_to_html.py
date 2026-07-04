@@ -1,6 +1,6 @@
 import unittest
-from markdown_to_html import markdown_to_html
-from parentnode import ParentNode
+from resources.markdown_to_html import markdown_to_html
+from resources.parentnode import ParentNode
 
 
 class TestMarkdownToHtml(unittest.TestCase):
