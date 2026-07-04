@@ -15,6 +15,6 @@ def generate_page(from_path: str, template_path: str, dest_path: str) -> None:
     new_page = new_page.replace("{{ Content }}", resultHTML)
     destination_folder = os.path.dirname(dest_path)
     if not os.path.exists(destination_folder):
-        os.makedirs(dest_path)
+        os.makedirs(destination_folder)
     with open(dest_path, "w") as f:
         f.write(new_page)

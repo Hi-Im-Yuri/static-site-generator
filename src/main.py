@@ -28,7 +28,12 @@ def main():
     source = "./static"
     destination = "./public"
     move_files(source, destination)
-    generate_page("./content/index.md", "./template.html", "./public/index.html")
+    for root, dirs, files in os.walk("./content"):
+        for file in files:
+            if file.endswith(".md"):
+              from_path = os.path.join(root, file)
+              to_path = from_path.replace("./content", "./public").replace(".md", ".html")
+              generate_page(from_path, "./template.html", to_path)
     return
 
 if __name__ == "__main__":
