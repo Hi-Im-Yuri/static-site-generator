@@ -29,7 +29,7 @@ def main():
     source = "./static"
     destination = "./docs"
     move_files(source, destination)
-    for root, dirs, files in os.walk(base_path):
+    for root, dirs, files in os.walk("./content"):
         for file in files:
             if file.endswith(".md"):
               from_path = os.path.join(root, file)

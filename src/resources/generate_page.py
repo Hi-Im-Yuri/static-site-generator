@@ -13,8 +13,8 @@ def generate_page(from_path: str, template_path: str, dest_path: str, base_path:
     title = extract_title(content)
     new_page = template.replace("{{ Title }}", title)
     new_page = new_page.replace("{{ Content }}", resultHTML)
-    new_page = new_page.replace("href=\"/", f"href={base_path}")
-    new_page = new_page.replace("src=\"/", f"src={base_path}")
+    new_page = new_page.replace("href=\"/", f"href=\"{base_path}")
+    new_page = new_page.replace("src=\"/", f"src=\"{base_path}")
     destination_folder = os.path.dirname(dest_path)
     if not os.path.exists(destination_folder):
         os.makedirs(destination_folder)
