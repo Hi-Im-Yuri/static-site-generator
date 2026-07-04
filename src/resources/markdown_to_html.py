@@ -41,21 +41,21 @@ def block_to_node(block_type: BlockType, block: str) -> ParentNode:
         case BlockType.PARAGRAPH:
             return ParentNode("p", text_to_children(block.replace("\n", " ")))
         case BlockType.HEADING1:
-            return ParentNode("h1", text_to_children(block))
+            return ParentNode("h1", text_to_children(block.lstrip("# ")))
         case BlockType.HEADING2:
-            return ParentNode("h2", text_to_children(block))
+            return ParentNode("h2", text_to_children(block.lstrip("# ")))
         case BlockType.HEADING3:
-            return ParentNode("h3", text_to_children(block))
+            return ParentNode("h3", text_to_children(block.lstrip("# ")))
         case BlockType.HEADING4:
-            return ParentNode("h4", text_to_children(block))
+            return ParentNode("h4", text_to_children(block.lstrip("# ")))
         case BlockType.HEADING5:
-            return ParentNode("h5", text_to_children(block))
+            return ParentNode("h5", text_to_children(block.lstrip("# ")))
         case BlockType.HEADING6:
-            return ParentNode("h6", text_to_children(block))
+            return ParentNode("h6", text_to_children(block.lstrip("# ")))
         case BlockType.CODE:
             return ParentNode("pre", [LeafNode("code", block.strip("```"))])
         case BlockType.QUOTE:
-            return ParentNode("blockquote", text_to_children(block))
+            return ParentNode("blockquote", text_to_children(block.lstrip("> ")))
         case BlockType.UNORDERED_LIST:
             return ParentNode("ul", list_to_children(block, False))
         case BlockType.ORDERED_LIST:
